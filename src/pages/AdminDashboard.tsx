@@ -64,8 +64,19 @@ export function AdminDashboard() {
         ],
       });
       const result = await signAndExecute({ transaction: tx });
-      toast.success(`VerifierCap issued successfully!`);
-      toast.info(`Transaction digest: ${result.digest}`);
+      toast.success(
+        <div>
+          <p className="font-bold">VerifierCap issued successfully!</p>
+          <a
+            href={`https://suiscan.xyz/txblock/${result.digest}?network=testnet`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 hover:text-blue-700 underline text-xs font-semibold block mt-1"
+          >
+            View on Sui Explorer ↗
+          </a>
+        </div>
+      );
       setVerifierAddress('');
       setVerifierName('');
     } catch (err: any) {
@@ -97,8 +108,19 @@ export function AdminDashboard() {
         ],
       });
       const result = await signAndExecute({ transaction: tx });
-      toast.success(`VerifierCap revoked on-chain!`);
-      toast.info(`Transaction digest: ${result.digest}`);
+      toast.success(
+        <div>
+          <p className="font-bold">VerifierCap revoked on-chain!</p>
+          <a
+            href={`https://suiscan.xyz/txblock/${result.digest}?network=testnet`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 hover:text-blue-700 underline text-xs font-semibold block mt-1"
+          >
+            View on Sui Explorer ↗
+          </a>
+        </div>
+      );
       setRevokeCapId('');
       refetchEscrow();
     } catch (err: any) {
@@ -133,8 +155,19 @@ export function AdminDashboard() {
         ],
       });
       const result = await signAndExecute({ transaction: tx });
-      toast.success(`Merchant ${verified ? 'verified' : 'suspended'} on-chain!`);
-      toast.info(`Transaction digest: ${result.digest}`);
+      toast.success(
+        <div>
+          <p className="font-bold">Merchant {verified ? 'verified' : 'suspended'} on-chain!</p>
+          <a
+            href={`https://suiscan.xyz/txblock/${result.digest}?network=testnet`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 hover:text-blue-700 underline text-xs font-semibold block mt-1"
+          >
+            View on Sui Explorer ↗
+          </a>
+        </div>
+      );
     } catch (err: any) {
       toast.error(err.message || 'Failed to update merchant status');
     } finally {
@@ -160,8 +193,19 @@ export function AdminDashboard() {
         ],
       });
       const result = await signAndExecute({ transaction: tx });
-      toast.success(`Accumulated fees successfully withdrawn!`);
-      toast.info(`Transaction digest: ${result.digest}`);
+      toast.success(
+        <div>
+          <p className="font-bold">Accumulated fees successfully withdrawn!</p>
+          <a
+            href={`https://suiscan.xyz/txblock/${result.digest}?network=testnet`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 hover:text-blue-700 underline text-xs font-semibold block mt-1"
+          >
+            View on Sui Explorer ↗
+          </a>
+        </div>
+      );
       refetchTreasury();
     } catch (err: any) {
       toast.error(err.message || 'Failed to withdraw fees');
