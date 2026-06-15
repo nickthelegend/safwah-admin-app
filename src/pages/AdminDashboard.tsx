@@ -68,7 +68,7 @@ export function AdminDashboard() {
         <div>
           <p className="font-bold">VerifierCap issued successfully!</p>
           <a
-            href={`https://suiscan.xyz/txblock/${result.digest}?network=testnet`}
+            href={`https://suiscan.xyz/testnet/tx/${result.digest}`}
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-500 hover:text-blue-700 underline text-xs font-semibold block mt-1"
@@ -112,7 +112,7 @@ export function AdminDashboard() {
         <div>
           <p className="font-bold">VerifierCap revoked on-chain!</p>
           <a
-            href={`https://suiscan.xyz/txblock/${result.digest}?network=testnet`}
+            href={`https://suiscan.xyz/testnet/tx/${result.digest}`}
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-500 hover:text-blue-700 underline text-xs font-semibold block mt-1"
@@ -159,7 +159,7 @@ export function AdminDashboard() {
         <div>
           <p className="font-bold">Merchant {verified ? 'verified' : 'suspended'} on-chain!</p>
           <a
-            href={`https://suiscan.xyz/txblock/${result.digest}?network=testnet`}
+            href={`https://suiscan.xyz/testnet/tx/${result.digest}`}
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-500 hover:text-blue-700 underline text-xs font-semibold block mt-1"
@@ -197,7 +197,7 @@ export function AdminDashboard() {
         <div>
           <p className="font-bold">Accumulated fees successfully withdrawn!</p>
           <a
-            href={`https://suiscan.xyz/txblock/${result.digest}?network=testnet`}
+            href={`https://suiscan.xyz/testnet/tx/${result.digest}`}
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-500 hover:text-blue-700 underline text-xs font-semibold block mt-1"
