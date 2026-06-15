@@ -58,7 +58,7 @@ export function AdminDashboard() {
       tx.moveCall({
         target: `${CONTRACTS.PACKAGE_ID}::safwah::issue_verifier_cap`,
         arguments: [
-          tx.object(CONTRACTS.SAFWAH_ADMIN_ID),
+          tx.object(CONTRACTS.ADMIN_ID),
           tx.pure.vector('u8', Array.from(new TextEncoder().encode(verifierName))),
           tx.pure.address(verifierAddress),
         ],
@@ -91,7 +91,7 @@ export function AdminDashboard() {
       tx.moveCall({
         target: `${CONTRACTS.PACKAGE_ID}::safwah::revoke_verifier`,
         arguments: [
-          tx.object(CONTRACTS.SAFWAH_ADMIN_ID),
+          tx.object(CONTRACTS.ADMIN_ID),
           tx.object(CONTRACTS.ESCROW_ID),
           tx.pure.id(revokeCapId),
         ],
@@ -155,7 +155,7 @@ export function AdminDashboard() {
       tx.moveCall({
         target: `${CONTRACTS.PACKAGE_ID}::safwah_treasury::admin_withdraw_fees`,
         arguments: [
-          tx.object(CONTRACTS.SAFWAH_ADMIN_ID),
+          tx.object(CONTRACTS.ADMIN_ID),
           tx.object(CONTRACTS.TREASURY_ID),
         ],
       });

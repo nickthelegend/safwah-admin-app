@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen, fireEvent, act } from '@testing-library/react';
 import { vi, describe, test, expect, beforeEach } from 'vitest';
 import { AdminDashboard } from '../pages/AdminDashboard';
@@ -25,7 +24,7 @@ vi.mock('@mysten/sui/transactions', () => {
     pure = Object.assign(
       vi.fn().mockImplementation((val) => val),
       {
-        vector: vi.fn().mockImplementation((type, val) => val),
+        vector: vi.fn().mockImplementation((_type, val) => val),
         address: vi.fn().mockImplementation((val) => val),
         bool: vi.fn().mockImplementation((val) => val),
         id: vi.fn().mockImplementation((val) => val),
