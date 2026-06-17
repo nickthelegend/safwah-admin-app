@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import { useSuiClientQuery, useCurrentAccount, useSignAndExecuteTransaction } from '@mysten/dapp-kit';
+import { useSuiClientQuery } from '@mysten/dapp-kit';
+import { useDynamicWallet } from '../hooks/useDynamicWallet';
 import { Transaction } from '@mysten/sui/transactions';
 import { CONTRACTS } from '../lib/contracts';
 import { Shield, DollarSign, Users, TrendingUp, AlertTriangle, Key, Landmark, Eye, RefreshCw } from 'lucide-react';
 import { toast } from 'sonner';
 
 export function AdminDashboard() {
-  const account = useCurrentAccount();
-  const { mutateAsync: signAndExecute } = useSignAndExecuteTransaction();
+  const { currentAccount: account, mutateAsync: signAndExecute } = useDynamicWallet();
 
   // Fetch escrow object for protocol stats
   const { data: escrowObj, refetch: refetchEscrow, isRefetching: isRefetchingEscrow } = useSuiClientQuery('getObject', {

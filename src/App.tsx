@@ -1,9 +1,10 @@
-import { ConnectButton, useCurrentAccount } from '@mysten/dapp-kit';
+import { DynamicWidget } from '@dynamic-labs/sdk-react-core';
+import { useDynamicWallet } from './hooks/useDynamicWallet';
 import { AdminDashboard } from './pages/AdminDashboard';
 import { Shield, Lock } from 'lucide-react';
 
 function App() {
-  const account = useCurrentAccount();
+  const { currentAccount: account } = useDynamicWallet();
 
   return (
     <div style={{
@@ -38,7 +39,7 @@ function App() {
             </span>
           </div>
 
-          <ConnectButton />
+          <DynamicWidget />
         </nav>
 
         {account ? (
@@ -81,7 +82,7 @@ function App() {
             </div>
 
             <div style={{ marginTop: '8px' }}>
-              <ConnectButton />
+              <DynamicWidget />
             </div>
           </div>
         )}
