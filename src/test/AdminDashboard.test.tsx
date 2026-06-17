@@ -42,14 +42,9 @@ const mockRefetchEscrow = vi.fn();
 const mockRefetchTreasury = vi.fn();
 let mockAccount: any = { address: '0xadminaddress123' };
 
-vi.mock('../hooks/useDynamicWallet', () => ({
-  useDynamicWallet: () => ({
-    currentAccount: mockAccount,
-    mutateAsync: mockSignAndExecute,
-  }),
-}));
-
 vi.mock('@mysten/dapp-kit', () => ({
+  useCurrentAccount: () => mockAccount,
+  useSignAndExecuteTransaction: () => ({ mutateAsync: mockSignAndExecute }),
   useSuiClientQuery: (queryName: string, params: any) => {
     if (queryName === 'getObject') {
       if (params.id === '0xescrow123') {
